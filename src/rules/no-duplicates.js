@@ -533,7 +533,7 @@ module.exports = {
           checkImports(map.defaultTypesImported, context);
           checkImports(map.namedTypesImported, context);
 
-          const duplicatedImports = new Map([...map.inlineTypesImported]);
+          const duplicatedImports = new Map(map.inlineTypesImported);
           map.imported.forEach((value, key) => {
             if (duplicatedImports.has(key)) {
               duplicatedImports.get(key).push(...value);
