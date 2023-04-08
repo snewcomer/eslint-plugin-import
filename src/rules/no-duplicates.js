@@ -159,7 +159,7 @@ function getTypeFix(nodes, sourceCode, context) {
     const preferInline = context.options[0] && context.options[0]['prefer-inline'];
 
     if (preferInline) {
-      if (!semver.satisfies(typescriptPkg.version, '>= 4.5')) {
+      if (typescriptPkg && !semver.satisfies(typescriptPkg.version, '>= 4.5')) {
         throw new Error('Your version of TypeScript does not support inline type imports.');
       }
 
